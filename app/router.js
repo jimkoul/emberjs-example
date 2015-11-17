@@ -6,6 +6,9 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('profile');
+  this.route('offers');
+  this.route('newoffer',{path:'/offers/new'});
 });
 
 export default Router;

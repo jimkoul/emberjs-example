@@ -1,0 +1,24 @@
+<h2>My offers</h2>
+<hr>
+    {{#each model as |offer|}}
+      <div class="row offerModel">
+          <div class="col-md-3">
+            <h4>Product: <small>{{offer.Product}}</small>  </h4>
+            <h4>Until: <small>{{offer.Until}} </small> </h4>
+            <h4>Min. Bid: <small>{{offer.MinBid}} </small> </h4>
+          </div>
+          <div class="col-md-3">
+            <h4>Location: <small>{{offer.Location}}</small> </h4>
+            <h4>Capacity: <small>{{offer.Capacity}}</small> </h4>
+            <h4>High Bid: <small>{{offer.HighBid}}</small> </h4>
+          </div>
+          <div class="col-md-3">
+              <h4>Status: <small>{{offer.Status}}</small> </h4>
+          </div>
+          <div class="col-md-3">
+            <button {{action 'showModal'  'components/offer-modal' offer}} class="btn btn-primary btn-custom">See Details</button>
+          </div>
+      </div>
+      <hr>
+    {{/each}}
+{{outlet}}

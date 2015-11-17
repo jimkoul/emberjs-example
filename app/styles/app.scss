@@ -1,0 +1,194 @@
+@import "bootstrap";
+@import "bootstrap/theme";
+
+//colors:
+$green:#2bb673;
+$lightorange:#fceac6;
+$hoverorange:#f9d99a;
+$hovergreen:#218a2a;
+
+$sidebarColor:$lightorange;
+$navColor:$green;
+
+body{
+  padding-top:50px;
+}
+#logoImg {
+  padding-top:0px;
+    img{
+      height: 50px;
+    }
+}
+#navigation{
+  background: $navColor;
+  border:none;
+  li {
+    a{
+    color:white;
+    }
+    a:hover , a:focus{
+      background:$hovergreen;
+    }
+  }
+  .btn-glyphicon{
+    position:relative;
+    float:left;
+    margin-right:15px;
+    margin-top:8px;
+    margin-bottom: 8px;
+    font-size:12pt;
+    color:white;
+    background:$green;
+  }
+  .btn-glyphicon:hover{
+    color:black;
+  }
+  .btn-glyphicon:focus{
+    outline:none;
+  }
+}
+#mainpage{
+  padding-left:250px;
+  //transitions for hiding
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+#mainpage.toggled{
+  padding-left:0px;
+}
+#sidebar-wrapper{
+      z-index: 1000;
+      position: fixed;
+      left: 250px;
+      width: 250px;
+      height: 100%;
+      margin-left: -250px;
+      overflow-y: auto;
+      background: $sidebarColor;
+      //transitions for hiding
+      -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+
+      .sidebar-nav {
+        position: absolute;
+        top: 0;
+        width: 250px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        li {
+          text-indent: 20px;
+          line-height: 40px;
+          a {
+            font-size:13pt;
+            display: block;
+            text-decoration: none;
+            color: black;
+            }
+          a:hover {
+            display:block;
+            text-decoration: underline;
+          }
+          .active{
+            display:block;
+            text-decoration: underline;
+            background:$hoverorange;
+              }
+          }
+        }
+}
+#mainpage.toggled #sidebar-wrapper{
+  width:0px
+}
+#page-content-wrapper {
+    padding: 20px;
+    position: relative;
+    width:100%;
+}
+#mainpage.toggled #page-content-wrapper{
+  position:absolute;
+  margin-right:-250px;
+}
+
+//Custom Button green
+.btn-custom{
+  font-size:12pt;
+  color:white;
+  background:$green;
+  border-color:$green;
+  border-radius:30px;
+  padding:5px 30px;
+}
+.btn-custom:hover, .btn-custom:focus{
+  background:$hovergreen;
+}
+//glyphicons for offer status
+.offer-status-Open::before{
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    content: "\e013";
+}
+.offer-status-Pending::before{
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  content:"\e107";
+}
+.offer-status-Closed::before{
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  content:"\e014";
+}
+//media query for hiding sidebar
+@media(max-width:768px) {
+    #mainpage {
+        padding-left: 0px;
+    }
+
+    #mainpage.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width:0px;
+    }
+
+    #mainpage.toggled #sidebar-wrapper {
+        width: 200px;
+        .sidebar-nav{
+          width:200px;
+        }
+    }
+
+    #mainpage #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+        margin-right:-250;
+    }
+
+    #mainpage.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+}

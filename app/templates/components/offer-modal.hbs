@@ -1,0 +1,18 @@
+{{#bootstrap-modal title='Offer' close='removeModal'}}
+<dl class="dl-horizontal">
+  <dt>Product</dt>
+  <dd>{{model.Product}}</dd>
+  <dt>Until</dt>
+  <dd>{{model.Until}}</dd>
+  <dt>Min. Bid</dt>
+  <dd>{{model.MinBid}}</dd>
+  <dt>High Bid</dt>
+  <dd>{{model.HighBid}}</dd>
+  <dt>Capacity</dt>
+  <dd>{{model.Capacity}}</dd>
+  <dt>Location</dt>
+  <dd>{{model.Location}}</dd>
+  <dt class="offer-status-{{model.Status}}">Status</dt>
+  <dd>{{model.Status}}</dd>
+</dl>
+{{/bootstrap-modal}}
